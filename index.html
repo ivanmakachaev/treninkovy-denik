@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Denik">
+<meta name="theme-color" content="#12161c">
+<title>Tréninkový deník</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAC3klEQVR4nO3cMW7UQBiA0QniBCnSkAOQe1BxEY5DzUVyldBRcY5QOQKJIrtxNJ7P71VbWJZn/y/Wep31ze3d/fOAiA+zDwD2JGhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGT8nH2AbyHT98eX73t7x9f3/FI5jjz+nNn6EuGec32R3f29aeCvnY4laGeff1jhIJ+61BWH+rZ17/JBA1jCJoYQZMiaFIO9T30ay5Mat+brmCluRwi6EuusLdtj/IGlq04Fx85SJketJsBx7TqXKYHDXsSNCmCJkXQpAiaFEGTcogbK9d6+vn08vrL91+77m81e69/j/3N4AxNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZl6X9Oevj88PJ6j9+y/b2/1ey9/tm/DbyWMzQpgiZF0KQImhRBkyJoUqYHfe3D/WY/FLBu1blMDxr2dIgbK9tf9UrPIT6DFedyiKA3R3lT+NdKc/GRgxRBkyJoUgRNSibot164rHTh8z9nX/8mE/QY694M2MvZ1z9GLOgxLh9OaZhjWP/N7d398+yDgL3kztCcm6BJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUv4A74RnSeWPpOIAAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAC3klEQVR4nO3cMW7UQBiA0QniBCnSkAOQe1BxEY5DzUVyldBRcY5QOQKJIrtxNJ7P71VbWJZn/y/Wep31ze3d/fOAiA+zDwD2JGhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGTImhSBE2KoEkRNCmCJkXQpAiaFEGT8nH2AbyHT98eX73t7x9f3/FI5jjz+nNn6EuGec32R3f29aeCvnY4laGeff1jhIJ+61BWH+rZ17/JBA1jCJoYQZMiaFIO9T30ay5Mat+brmCluRwi6EuusLdtj/IGlq04Fx85SJketJsBx7TqXKYHDXsSNCmCJkXQpAiaFEGTcogbK9d6+vn08vrL91+77m81e69/j/3N4AxNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZl6X9Oevj88PJ6j9+y/b2/1ey9/tm/DbyWMzQpgiZF0KQImhRBkyJoUqYHfe3D/WY/FLBu1blMDxr2dIgbK9tf9UrPIT6DFedyiKA3R3lT+NdKc/GRgxRBkyJoUgRNSibot164rHTh8z9nX/8mE/QY694M2MvZ1z9GLOgxLh9OaZhjWP/N7d398+yDgL3kztCcm6BJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUgRNiqBJETQpgiZF0KQImhRBkyJoUv4A74RnSeWPpOIAAAAASUVORK5CYII=">
+<style>html,body{background:#12161c;margin:0;padding:0;min-height:100%;}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  #app {
+    --bg:      #12161c;
+    --surf:    #1a212a;
+    --surf2:   #212b36;
+    --line:    #2b3743;
+    --line2:   #3a4855;
+    --ink:     #e9eef3;
+    --ink2:    #94a3b1;
+    --ink3:    #5f6f7d;
+    --blue:    #2d7dd2;
+    --blue-dk: #1f5b9c;
+    --green:   #46a578;
+    --amber:   #d99a2b;
+    --red:     #cf4b40;
+
+    font-family: 'Barlow', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 620px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+    font-size: 16px;
+    line-height: 1.45;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- header ---------- */
+  .hdr {
+    position: sticky; top: 0; z-index: 20;
+    padding-top: env(safe-area-inset-top);
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .wkbar {
+    display: flex; align-items: stretch;
+    border-bottom: 1px solid var(--line);
+  }
+  .wkbtn {
+    width: 52px; flex: none;
+    background: none; border: none; color: var(--ink2);
+    font-size: 24px; font-weight: 500; cursor: pointer;
+    font-family: inherit;
+  }
+  .wkbtn:active { background: var(--surf2); color: var(--ink); }
+  .wkbtn:disabled { color: var(--ink3); opacity: .4; }
+  .wkinfo {
+    flex: 1; text-align: center; padding: .55rem 0 .5rem;
+    display: flex; flex-direction: column; gap: 1px;
+  }
+  .wknum {
+    font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+    font-size: 1.45rem; font-weight: 700; letter-spacing: .01em;
+    line-height: 1.05;
+  }
+  .blk { font-size: .72rem; color: var(--ink2); letter-spacing: .02em; }
+  .blk b { color: var(--blue); font-weight: 600; }
+
+  .days { display: flex; }
+  .day {
+    flex: 1; background: none; border: none; border-right: 1px solid var(--line);
+    color: var(--ink3); cursor: pointer; padding: .5rem .3rem .55rem;
+    font-family: inherit; text-align: center;
+    border-bottom: 3px solid transparent;
+  }
+  .day:last-child { border-right: none; }
+  .day .dl {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem; font-weight: 600; display: block; line-height: 1.1;
+  }
+  .day .ds { font-size: .66rem; display: block; opacity: .8; }
+  .day.on { color: var(--ink); border-bottom-color: var(--blue); background: var(--surf); }
+  .day.done .dl::after { content: ' ·'; color: var(--green); }
+
+  /* ---------- readiness ---------- */
+  .ready { background: var(--surf); border-bottom: 1px solid var(--line); }
+  .rtop {
+    display: flex; align-items: center; gap: .6rem;
+    padding: .6rem .9rem;
+  }
+  .rlabel { font-size: .78rem; color: var(--ink2); flex: 1; }
+  .zones { display: flex; gap: 5px; }
+  .z {
+    width: 34px; height: 30px; border-radius: 4px;
+    border: 1px solid var(--line2); background: transparent;
+    cursor: pointer; font-family: inherit; font-size: .8rem; font-weight: 600;
+    color: var(--ink3);
+  }
+  .z[data-z="g"].on { background: var(--green); border-color: var(--green); color: #0d1a13; }
+  .z[data-z="a"].on { background: var(--amber); border-color: var(--amber); color: #211703; }
+  .z[data-z="r"].on { background: var(--red);   border-color: var(--red);   color: #240906; }
+  .verdict {
+    padding: 0 .9rem .65rem; font-size: .78rem; color: var(--ink2);
+  }
+  .verdict b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- exercise ledger ---------- */
+  .ex {
+    border-bottom: 1px solid var(--line);
+    padding: .7rem .9rem .8rem;
+    position: relative;
+  }
+  .ex.main { background: var(--surf); border-left: 3px solid var(--blue); padding-left: calc(.9rem - 3px); }
+  .ex.skip { opacity: .34; }
+  .exhead { display: flex; align-items: baseline; gap: .5rem; }
+  .code {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+    font-size: .82rem; color: var(--ink3); width: 22px; flex: none;
+  }
+  .ex.main .code { color: var(--blue); }
+  .exname { flex: 1; font-weight: 600; font-size: .96rem; line-height: 1.25; }
+  .ex.main .exname { font-size: 1.08rem; }
+  .presc { font-size: .78rem; color: var(--ink2); white-space: nowrap; }
+  .ex.main .presc { color: var(--blue); font-weight: 600; }
+  .exnote { font-size: .74rem; color: var(--ink3); margin: 2px 0 0 30px; }
+  .prev {
+    font-size: .75rem; color: var(--ink3); margin: .35rem 0 0 30px;
+  }
+  .prev b { color: var(--ink2); font-weight: 500; }
+
+  .sets { display: flex; flex-direction: column; gap: 5px; margin: .5rem 0 0 30px; }
+  .setrow { display: flex; align-items: center; gap: 6px; }
+  .sn {
+    width: 15px; font-size: .74rem; color: var(--ink3); flex: none;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+  }
+  .fld { position: relative; flex: 1; max-width: 108px; }
+  .fld input {
+    width: 100%; background: var(--surf2); border: 1px solid var(--line);
+    border-radius: 5px; color: var(--ink); font-family: inherit;
+    font-size: 1rem; font-weight: 600; padding: .42rem 1.9rem .42rem .55rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .ex.main .fld input { background: var(--bg); }
+  .fld input:focus { outline: none; border-color: var(--blue); }
+  .fld input::placeholder { color: var(--ink3); font-weight: 400; }
+  .fld span {
+    position: absolute; right: .5rem; top: 50%; transform: translateY(-50%);
+    font-size: .72rem; color: var(--ink3); pointer-events: none;
+  }
+  .setrow.filled .sn { color: var(--green); }
+
+  .armor { display: flex; gap: .5rem; margin: .5rem 0 0 30px; flex-wrap: wrap; }
+  .chk {
+    background: var(--surf2); border: 1px solid var(--line); border-radius: 5px;
+    color: var(--ink2); font-family: inherit; font-size: .84rem;
+    padding: .4rem .7rem; cursor: pointer;
+  }
+  .chk.on { background: var(--green); border-color: var(--green); color: #0d1a13; font-weight: 600; }
+
+  /* ---------- footer ---------- */
+  .foot { padding: 1rem .9rem 0; }
+  .fh {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1rem;
+    font-weight: 600; color: var(--ink2); margin-bottom: .45rem;
+  }
+  .sect { margin-bottom: 1.5rem; }
+  textarea, .binp {
+    width: 100%; background: var(--surf); border: 1px solid var(--line);
+    border-radius: 6px; color: var(--ink); font-family: inherit;
+    font-size: .92rem; padding: .55rem .65rem; resize: vertical;
+  }
+  textarea:focus, .binp:focus { outline: none; border-color: var(--blue); }
+  .bwrow { display: flex; gap: 8px; }
+  .bwrow .binp { flex: 1; font-weight: 600; }
+  .btn {
+    background: var(--surf2); border: 1px solid var(--line2); border-radius: 6px;
+    color: var(--ink); font-family: inherit; font-size: .88rem; font-weight: 600;
+    padding: .55rem .95rem; cursor: pointer;
+  }
+  .btn:active { background: var(--blue); border-color: var(--blue); }
+  .btn.wide { width: 100%; }
+  .bwlist { margin-top: .5rem; font-size: .82rem; color: var(--ink2); }
+  .bwlist div { display: flex; justify-content: space-between; padding: .22rem 0; border-bottom: 1px solid var(--line); }
+  .bwlist .up { color: var(--green); }
+  .bwlist .dn { color: var(--amber); }
+
+  .saved {
+    position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
+    background: var(--green); color: #0d1a13; font-size: .78rem; font-weight: 600;
+    padding: .35rem .8rem; border-radius: 20px; opacity: 0;
+    transition: opacity .25s; pointer-events: none; z-index: 40;
+  }
+  .saved.show { opacity: 1; }
+
+  .hint { font-size: .78rem; color: var(--ink3); line-height: 1.45; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+  /* ---------- tabs ---------- */
+  .tabs { display: flex; border-bottom: 1px solid var(--line); }
+  .tab {
+    flex: 1; background: none; border: none; color: var(--ink3);
+    font-family: inherit; font-size: .88rem; font-weight: 600;
+    padding: .75rem 0; cursor: pointer; border-bottom: 3px solid transparent;
+  }
+  .tab.on { color: var(--ink); border-bottom-color: var(--blue); }
+
+  /* ---------- progres tab ---------- */
+  .pwrap { padding-bottom: 1rem; }
+  .psect { padding: .9rem; border-bottom: 1px solid var(--line); }
+  .psect .fh { margin-bottom: .3rem; }
+  .psub { font-size: .76rem; color: var(--ink3); margin-bottom: .6rem; }
+  .chart { width: 100%; height: auto; }
+  .chart .grid { stroke: var(--line); stroke-width: 1; }
+  .chart .axis { fill: var(--ink3); font-size: 8px; font-family: 'Barlow', sans-serif; }
+  .chart .lbw { fill: none; stroke: var(--amber); stroke-width: 2; }
+  .chart .lidx { fill: none; stroke: var(--blue); stroke-width: 2; }
+  .chart .lrel { fill: none; stroke: var(--green); stroke-width: 2; stroke-dasharray: 4 3; }
+  .chart circle { fill: var(--surf); stroke-width: 1.6; }
+  .legend { display: flex; gap: 1rem; flex-wrap: wrap; font-size: .74rem; color: var(--ink2); margin-top: .5rem; }
+  .legend span { display: inline-flex; align-items: center; gap: .35rem; }
+  .legend i { width: 12px; height: 3px; border-radius: 2px; display: inline-block; }
+  .stats { display: flex; gap: 1rem; margin-top: .7rem; }
+  .stat { flex: 1; background: var(--surf2); border-radius: 6px; padding: .55rem .65rem; }
+  .stat .sv { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 700; }
+  .stat .sl { font-size: .7rem; color: var(--ink2); }
+  .stat.pod .sv { color: var(--amber); }
+  .stat.v .sv { color: var(--green); }
+  .stat.nad .sv { color: var(--red); }
+  .psel {
+    width: 100%; background: var(--surf2); border: 1px solid var(--line);
+    border-radius: 6px; color: var(--ink); font-family: inherit;
+    font-size: .9rem; padding: .5rem .6rem; margin-bottom: .7rem;
+  }
+  .toggle {
+    background: var(--surf2); border: 1px solid var(--line2); border-radius: 6px;
+    color: var(--ink2); font-family: inherit; font-size: .78rem; font-weight: 600;
+    padding: .4rem .7rem; cursor: pointer; margin-top: .6rem;
+  }
+  .toggle.on { background: var(--green); border-color: var(--green); color: #0d1a13; }
+</style>
+
+<div id="app">
+  <div class="tabs">
+    <button class="tab on" data-tab="denik">Deník</button>
+    <button class="tab" data-tab="progres">Progres</button>
+  </div>
+
+  <div id="viewDenik">
+    <div class="hdr">
+      <div class="wkbar">
+        <button class="wkbtn" id="wkPrev" aria-label="Předchozí týden">−</button>
+        <div class="wkinfo">
+          <span class="wknum" id="wkNum">Týden 1</span>
+          <span class="blk" id="wkBlk"></span>
+        </div>
+        <button class="wkbtn" id="wkNext" aria-label="Další týden">+</button>
+      </div>
+      <div class="days" id="days"></div>
+    </div>
+
+    <div class="ready">
+      <div class="rtop">
+        <span class="rlabel">Jak na tom dneska jsi?</span>
+        <div class="zones">
+          <button class="z" data-z="g">OK</button>
+          <button class="z" data-z="a">−</button>
+          <button class="z" data-z="r">−−</button>
+        </div>
+      </div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+
+    <div id="list"></div>
+
+    <div class="foot">
+      <div class="sect">
+        <div class="fh">Poznámka k tréninku</div>
+        <textarea id="note" rows="2" placeholder="Co bolelo, co šlo, co příště jinak"></textarea>
+      </div>
+
+      <div class="sect">
+        <div class="fh">Ranní váha</div>
+        <div class="bwrow" style="margin-bottom:6px">
+          <input class="binp" id="bwDate" type="date">
+        </div>
+        <div class="bwrow">
+          <input class="binp" id="bwIn" type="number" step="0.1" inputmode="decimal" placeholder="kg">
+          <button class="btn" id="bwAdd">Zapsat</button>
+        </div>
+        <div class="bwlist" id="bwList"></div>
+      </div>
+
+      <div class="sect">
+        <div class="fh">Záloha dat</div>
+        <button class="btn wide" id="exp">Stáhnout CSV</button>
+        <p class="hint" style="margin-top:.5rem">Data žijí v prohlížeči tohohle telefonu. Jednou za pár týdnů si je stáhni, ať o ně nepřijdeš.</p>
+        <button class="btn wide" id="bkp" style="margin-top:.6rem">Záloha všeho (JSON)</button>
+        <button class="btn wide" id="rst" style="margin-top:.4rem">Obnovit ze zálohy</button>
+        <textarea id="json" rows="4" placeholder="Sem vlož zálohu a zmáčkni Obnovit" style="margin-top:.6rem; font-size:.72rem"></textarea>
+      </div>
+
+      <div class="sect">
+        <div class="fh">Plán a cykly</div>
+        <select class="psel" id="cycleSel" style="margin-bottom:.5rem"></select>
+        <div class="bwrow">
+          <input class="binp" id="newCycleName" type="text" placeholder="Název nového cyklu">
+          <button class="btn" id="newCycle">+ Nový</button>
+        </div>
+        <p class="hint" style="margin-top:.6rem">Export dá aktuální plán jako šablonu k úpravě. Import ho vrátí zpět — zapsaných tréninků se nedotkne.</p>
+        <button class="btn wide" id="planExp" style="margin-top:.5rem">Export plánu (JSON)</button>
+        <textarea id="planImp" rows="4" placeholder="Sem vlož upravený plán a zmáčkni Import" style="margin-top:.6rem; font-size:.72rem"></textarea>
+        <button class="btn wide" id="planImpBtn" style="margin-top:.4rem">Import plánu</button>
+        <p class="hint" id="planMsg" style="margin-top:.4rem"></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="viewProgres" hidden>
+    <div class="pwrap">
+      <div class="psect">
+        <div class="fh">Váha vs. síla</div>
+        <div class="psub">Roste váha a index síly je plochý? Nabíráš tuk, ne sval.</div>
+        <div id="mainChart"></div>
+        <div class="legend" id="mainLegend"></div>
+        <button class="toggle" id="relToggle" style="display:none">+ relativní síla (1RM / váha)</button>
+        <div class="stats" id="mainStats"></div>
+      </div>
+      <div class="psect" id="exSect" style="display:none">
+        <div class="fh">Vývoj cviku</div>
+        <select class="psel" id="exSel"></select>
+        <div id="exChart"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="saved" id="saved">Uloženo</div>
+</div>
+
+<script>
+(function () {
+  const KEY = 'grappling-log-v1';
+
+  // seed plan for a brand-new install — from here on the live plan lives in
+  // data.cycles[activeCycle].plan, this is only the initial content
+  const DEFAULT_DAYS = {
+    A: {
+      day: 'Pondělí', short: 'Po', title: 'Dřep + vertikální tah',
+      ex: [
+        { id: 'a_cmj',   code: 'A1', name: 'Výskoky z podřepu (CMJ)', kind: 'prep',  fixed: '3 × 3', note: 'Zároveň test připravenosti' },
+        { id: 'a_zer',   code: 'B1', name: 'Zercher dřep',            kind: 'main',  note: 'Ručník do loketní jamky, z pinů ve výšce boků' },
+        { id: 'a_pull',  code: 'C1', name: 'Shyby s dovažkem',        kind: 'acc',   reps: '5–8', keepMin: true },
+        { id: 'a_hack',  code: 'C2', name: 'Hack dřep / leg press',   kind: 'acc',   reps: '10–12', note: 'Paty podložené — druhý nosič zátěže na nohy' },
+        { id: 'a_inc',   code: 'D1', name: 'Incline DB press',        kind: 'acc', reps: '8–10', note: 'Lavice ~30°' },
+        { id: 'a_pall',  code: 'D2', name: 'Pallof press',            kind: 'acc',   reps: '10 / strana' },
+        { id: 'a_lat',   code: 'E1', name: 'Pullover na kladce',      kind: 'fin',   reps: '12–15', note: 'Lokty skoro natažené — záda bez zátěže na grip' },
+        { id: 'a_bic',   code: 'E2', name: 'Kladivový biceps',        kind: 'fin',   reps: '10–12' },
+        { id: 'a_arm',   code: 'F',  name: 'Krk + grip',              kind: 'armor' }
+      ]
+    },
+    B: {
+      day: 'Středa', short: 'St', title: 'Horní tělo + hýždě',
+      ex: [
+        { id: 'b_mb',    code: 'A1', name: 'Rotační hod medicinbalem', kind: 'prep', fixed: '4 × 3 / strana', note: 'Maximální rychlost, ne do únavy' },
+        { id: 'b_ohp',   code: 'B1', name: 'Tlak nad hlavu / push press', kind: 'main' },
+        { id: 'b_row',   code: 'C1', name: 'Chest supported rows na lavičce', kind: 'acc', reps: '8–10', keepMin: true, note: 'Hrudníkem na lavici — trup drží lavice, ne bedra' },
+        { id: 'b_dip',   code: 'C2', name: 'Dipy s dovažkem',         kind: 'acc',   reps: '8–10' },
+        { id: 'b_hip',   code: 'D1', name: 'Hip thrust',              kind: 'acc',   reps: '10–12' },
+        { id: 'b_ab',    code: 'D2', name: 'Ab wheel',                kind: 'acc',   reps: '8–10' },
+        { id: 'b_lat',   code: 'E1', name: 'Lateral raises',          kind: 'fin',   reps: '12–15', note: 'Lehké, do výšky ramen, žádné švihání' },
+        { id: 'b_tri',   code: 'E2', name: 'Triceps kladka',          kind: 'fin',   reps: '10–12' },
+        { id: 'b_arm',   code: 'F',  name: 'Krk + grip',              kind: 'armor' }
+      ]
+    },
+    C: {
+      day: 'Sobota', short: 'So', title: 'Zadní řetězec + brnění',
+      ex: [
+        { id: 'c_bnd',   code: 'A1', name: 'Bounds / přeskoky překážek', kind: 'prep', fixed: '3 × 4', note: 'Kvalita, ne výška' },
+        { id: 'c_rdl',   code: 'B1', name: 'Rumunský mrtvý tah',      kind: 'main' },
+        { id: 'c_bul',   code: 'C1', name: 'Bulharský dřep',          kind: 'acc',   reps: '8–10 / nohu' },
+        { id: 'c_row',   code: 'C2', name: 'Jednoruční veslování',    kind: 'acc',   reps: '10–12 / strana', keepMin: true },
+        { id: 'c_nor',   code: 'D1', name: 'Nordic curl / GHR',       kind: 'acc',   reps: '6–8' },
+        { id: 'c_far',   code: 'D2', name: "Farmer's walk / sled",    kind: 'acc',   reps: '20–30 m' },
+        { id: 'c_shr',   code: 'E1', name: 'Shrugs',                  kind: 'fin',   reps: '12–15' },
+        { id: 'c_fac',   code: 'E2', name: 'Face pulls + rotátory',   kind: 'fin',   reps: '15' },
+        { id: 'c_arm',   code: 'F',  name: 'Krk (4 směry) + grip',    kind: 'armor' }
+      ]
+    }
+  };
+
+  const DEFAULT_WEEKS = {
+    1:  { blk: 'Akumulace',      ms: 3, mr: '8',  rpe: '7',   acc: 3, fin: 3 },
+    2:  { blk: 'Akumulace',      ms: 4, mr: '8',  rpe: '7,5', acc: 3, fin: 3 },
+    3:  { blk: 'Akumulace',      ms: 4, mr: '8',  rpe: '8',   acc: 4, fin: 3 },
+    4:  { blk: 'Akumulace',      ms: 4, mr: '6',  rpe: '8',   acc: 4, fin: 3 },
+    5:  { blk: 'Akumulace',      ms: 5, mr: '6',  rpe: '8',   acc: 4, fin: 3 },
+    6:  { blk: 'Deload',         ms: 2, mr: '6',  rpe: '6',   acc: 2, fin: 2 },
+    7:  { blk: 'Intenzifikace',  ms: 4, mr: '6',  rpe: '8',   acc: 3, fin: 3 },
+    8:  { blk: 'Intenzifikace',  ms: 4, mr: '5',  rpe: '8',   acc: 3, fin: 3 },
+    9:  { blk: 'Intenzifikace',  ms: 5, mr: '4',  rpe: '8,5', acc: 3, fin: 3 },
+    10: { blk: 'Intenzifikace',  ms: 5, mr: '3',  rpe: '8,5', acc: 3, fin: 3 },
+    11: { blk: 'Intenzifikace',  ms: 4, mr: '3',  rpe: '9',   acc: 3, fin: 3 },
+    12: { blk: 'Deload + testy', ms: 2, mr: '5',  rpe: '6',   acc: 2, fin: 2 }
+  };
+
+  const DEFAULT_PLAN = { days: DEFAULT_DAYS, weeks: DEFAULT_WEEKS };
+
+  const VERDICTS = {
+    g: ['Plná verze', 'Jedeš přesně podle plánu.'],
+    a: ['Zkrácená verze', 'Hlavní cvik o sérii míň, doplňky o sérii míň, cvičky (E) vynech. Krk a grip nech.'],
+    r: ['Minimální verze', 'Hlavní cvik 2 × 3 na RPE 6, jeden tah, krk. Konec. Nevynecháváš — jen držíš vzorec.']
+  };
+
+  let data = { bw: {} };
+  let week = 1, day = 'A', saveTimer = null;
+  let showRel = false;
+  let DAYS, WEEKS; // active cycle's plan — see applyActiveCycle()
+
+  const $ = (s) => document.querySelector(s);
+  const key = () => 'w' + week + '-' + day;
+  const today = () => new Date().toISOString().slice(0, 10);
+  const clonePlan = (p) => JSON.parse(JSON.stringify(p));
+
+  // active cycle's log entries — {'w1-A': {sets, zone, note, armor, date}, ...}
+  function entries() {
+    return data.cycles[data.activeCycle].entries;
+  }
+
+  function applyActiveCycle() {
+    const c = data.cycles[data.activeCycle];
+    DAYS = c.plan.days;
+    WEEKS = c.plan.weeks;
+  }
+
+  // migrate a pre-cycles backup (flat data.entries) into cycles['blok-1'],
+  // or seed a brand-new install — never touches already-logged entries
+  function ensureCycles() {
+    if (!data.cycles) {
+      data.cycles = {
+        'blok-1': { name: 'Blok 1', createdAt: today(), plan: clonePlan(DEFAULT_PLAN), entries: data.entries || {} }
+      };
+      data.activeCycle = 'blok-1';
+      delete data.entries;
+    }
+    if (!data.activeCycle || !data.cycles[data.activeCycle]) {
+      data.activeCycle = Object.keys(data.cycles)[0];
+    }
+  }
+
+  function entry() {
+    const es = entries();
+    if (!es[key()]) es[key()] = { sets: {}, zone: 'g', note: '', armor: {} };
+    return es[key()];
+  }
+
+  // ---- persistence -------------------------------------------------
+  function load() {
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) data = JSON.parse(raw);
+      if (!data.bw) data.bw = {};
+    } catch (e) { /* první spuštění, nic uloženého */ }
+    ensureCycles();
+    applyActiveCycle();
+    day = Object.keys(DAYS)[0];
+    const w = Object.keys(entries()).map(k => +k.slice(1).split('-')[0]);
+    if (w.length) week = Math.min(12, Math.max.apply(null, w));
+    populateCycleSel();
+    render();
+  }
+
+  function save() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      try {
+        localStorage.setItem(KEY, JSON.stringify(data));
+        const s = $('#saved'); s.textContent = 'Uloženo';
+        s.classList.add('show'); setTimeout(() => s.classList.remove('show'), 900);
+      } catch (e) {
+        const s = $('#saved'); s.textContent = 'Uložení selhalo';
+        s.style.background = 'var(--red)'; s.style.color = '#fff';
+        s.classList.add('show'); setTimeout(() => s.classList.remove('show'), 2500);
+      }
+    }, 450);
+  }
+
+  // ---- how many sets, given week + readiness ------------------------
+  function setCount(ex, w, zone) {
+    if (zone === 'r') return ex.kind === 'main' ? 2 : (ex.keepMin ? 2 : 0);
+    let n = ex.kind === 'main' ? w.ms : ex.kind === 'fin' ? w.fin : w.acc;
+    if (zone === 'a') { if (ex.kind === 'fin') return 0; n = Math.max(1, n - 1); }
+    return n;
+  }
+
+  function prescription(ex, w, zone) {
+    if (ex.kind === 'prep') return ex.fixed;
+    if (ex.kind === 'armor') return '';
+    const n = setCount(ex, w, zone);
+    if (!n) return 'vynech';
+    if (ex.kind === 'main') return n + ' × ' + (zone === 'r' ? '3' : w.mr) + '  ·  RPE ' + (zone === 'r' ? '6' : w.rpe);
+    return n + ' × ' + ex.reps;
+  }
+
+  // ---- last time this exercise was logged ---------------------------
+  function previous(exId) {
+    for (let wk = week - 1; wk >= 1; wk--) {
+      const e = entries()['w' + wk + '-' + day];
+      if (!e || !e.sets || !e.sets[exId]) continue;
+      const rows = e.sets[exId].filter(s => s && (s.kg || s.r));
+      if (rows.length) return { wk, rows, zone: e.zone || 'g' };
+    }
+    return null;
+  }
+
+  // upper bound of the prescribed rep range, so we can tell "hit the top of the range"
+  function repUpper(ex, w, zone) {
+    if (ex.kind === 'main') {
+      if (zone === 'r') return 3;
+      const v = parseFloat(String(w.mr).replace(',', '.'));
+      return isNaN(v) ? null : v;
+    }
+    const nums = String(ex.reps || '').match(/\d+/g);
+    if (!nums) return null;
+    return Math.max.apply(null, nums.map(Number));
+  }
+
+  // grey placeholder suggestion for the next session's weight — never auto-saved,
+  // just what shows until the lifter types over it
+  function suggestKg(ex) {
+    const p = previous(ex.id);
+    if (!p || !p.rows.length) return null;
+    const kgs = p.rows.map(r => r.kg).filter(v => v != null);
+    if (!kgs.length) return null;
+    const baseKg = Math.max.apply(null, kgs);
+    const w = WEEKS[p.wk];
+    const upper = repUpper(ex, w, p.zone);
+    if (upper == null) return baseKg;
+    const allUpper = p.rows.every(r => r.r != null && r.r >= upper);
+    if (!allUpper) return baseKg;
+    if (ex.kind === 'main') {
+      if (p.zone === 'r') return baseKg;
+      const rpe = parseFloat(String(w.rpe).replace(',', '.'));
+      return (!isNaN(rpe) && rpe <= 8) ? baseKg + 2.5 : baseKg;
+    }
+    return baseKg + 2.5;
+  }
+
+  // ---- progres: shared helpers ---------------------------------------
+  function epley(kg, r) { return kg * (1 + r / 30); }
+
+  function bestSet(rows) {
+    if (!rows) return null;
+    let best = null;
+    rows.forEach(s => {
+      if (!s || !s.kg || !s.r) return;
+      const e = epley(s.kg, s.r);
+      if (best === null || e > best) best = e;
+    });
+    return best;
+  }
+
+  // date-only arithmetic stays in UTC end-to-end so it doesn't depend on the
+  // device's timezone (a local-time parse mixed with toISOString output shifts
+  // the date by a day in any positive-UTC-offset zone, e.g. Europe/Prague)
+  function mondayOf(dateStr) {
+    const d = new Date(dateStr + 'T00:00:00Z');
+    const wd = d.getUTCDay();
+    const diff = (wd === 0 ? -6 : 1) - wd;
+    d.setUTCDate(d.getUTCDate() + diff);
+    return d.toISOString().slice(0, 10);
+  }
+
+  // across ALL cycles — each entry's day definition comes from the cycle it
+  // was logged under, so an old cycle's exercise IDs/kinds stay correct even
+  // after the active plan changes
+  function allSessions() {
+    const out = [];
+    Object.values(data.cycles).forEach(cyc => {
+      Object.keys(cyc.entries).forEach(k => {
+        const en = cyc.entries[k];
+        if (!en.date) return;
+        const dy = k.split('-')[1];
+        const dd = cyc.plan.days[dy];
+        if (!dd) return;
+        out.push({ date: en.date, entry: en, dayDef: dd });
+      });
+    });
+    out.sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0);
+    return out;
+  }
+
+  // one row per ISO week (Monday key) that has either a main-lift reading or a
+  // bodyweight reading, with both series carried forward so the lines stay continuous
+  function buildWeeklySeries() {
+    const sessions = allSessions();
+    const lastKnown = {};
+    const strengthByWeek = {};
+    sessions.forEach(s => {
+      let touched = false;
+      s.dayDef.ex.forEach(ex => {
+        if (ex.kind !== 'main') return;
+        const best = bestSet(s.entry.sets && s.entry.sets[ex.id]);
+        if (best != null) { lastKnown[ex.id] = best; touched = true; }
+      });
+      if (touched || Object.keys(lastKnown).length) {
+        strengthByWeek[mondayOf(s.date)] = Object.values(lastKnown).reduce((a, b) => a + b, 0);
+      }
+    });
+
+    const bwByWeek = {};
+    Object.keys(data.bw).forEach(d => {
+      const wk = mondayOf(d);
+      (bwByWeek[wk] = bwByWeek[wk] || []).push(data.bw[d]);
+    });
+    const bwAvgByWeek = {};
+    Object.keys(bwByWeek).forEach(wk => {
+      const arr = bwByWeek[wk];
+      bwAvgByWeek[wk] = arr.reduce((a, b) => a + b, 0) / arr.length;
+    });
+
+    const allWeeks = Array.from(new Set([...Object.keys(strengthByWeek), ...Object.keys(bwAvgByWeek)])).sort();
+    if (!allWeeks.length) return [];
+
+    let lastStrength = null, lastBw = null, baseStrength = null, baseBw = null;
+    return allWeeks.map(wk => {
+      if (strengthByWeek[wk] != null) lastStrength = strengthByWeek[wk];
+      if (bwAvgByWeek[wk] != null) lastBw = bwAvgByWeek[wk];
+      if (baseStrength == null && lastStrength != null) baseStrength = lastStrength;
+      if (baseBw == null && lastBw != null) baseBw = lastBw;
+      return {
+        week: wk,
+        bw: lastBw,
+        idx: (lastStrength != null && baseStrength != null) ? lastStrength / baseStrength * 100 : null,
+        rel: (lastStrength != null && lastBw != null && baseStrength != null && baseBw != null)
+          ? (lastStrength / lastBw) / (baseStrength / baseBw) * 100 : null
+      };
+    });
+  }
+
+  function scaleY(v, min, max, top, bottom) {
+    if (max === min) return (top + bottom) / 2;
+    return bottom - (v - min) / (max - min) * (bottom - top);
+  }
+
+  function segments(rows, field, xf) {
+    const segs = []; let cur = [];
+    rows.forEach((r, i) => {
+      const v = r[field];
+      if (v == null) { if (cur.length) { segs.push(cur); cur = []; } return; }
+      cur.push([xf(i), v]);
+    });
+    if (cur.length) segs.push(cur);
+    return segs;
+  }
+
+  function niceRange(vals) {
+    const a = vals.filter(v => v != null);
+    if (!a.length) return [0, 1];
+    let min = Math.min.apply(null, a), max = Math.max.apply(null, a);
+    if (min === max) { min -= 1; max += 1; }
+    const pad = (max - min) * 0.12;
+    return [min - pad, max + pad];
+  }
+
+  function lineChartSvg(rows, lines, opts) {
+    const W = 320, H = 170, L = 34, R = 34, T = 10, B = 20;
+    const n = rows.length;
+    const xf = i => n <= 1 ? L : L + (W - L - R) * i / (n - 1);
+    let svg = '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet">';
+    // horizontal gridlines (4)
+    for (let g = 0; g <= 4; g++) {
+      const y = T + (H - T - B) * g / 4;
+      svg += '<line class="grid" x1="' + L + '" y1="' + y + '" x2="' + (W - R) + '" y2="' + y + '"/>';
+    }
+    lines.forEach(ln => {
+      const [min, max] = niceRange(rows.map(r => r[ln.field]));
+      const segs = segments(rows, ln.field, i => xf(i));
+      segs.forEach(seg => {
+        const pts = seg.map(p => [p[0], scaleY(p[1], min, max, T, H - B)]);
+        const d = pts.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ');
+        svg += '<polyline class="' + ln.cls + '" points="' + d + '"/>';
+        pts.forEach(p => { svg += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="2.4" stroke="var(' + ln.color + ')"/>'; });
+      });
+    });
+    // x labels: first, middle, last week
+    [0, Math.floor((n - 1) / 2), n - 1].forEach((i, k) => {
+      if (i < 0 || (k === 1 && (i === 0 || i === n - 1))) return;
+      const d = rows[i].week.slice(5).replace('-', '.') + '.';
+      const anchor = i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle';
+      svg += '<text class="axis" x="' + xf(i) + '" y="' + (H - 5) + '" text-anchor="' + anchor + '">' + d + '</text>';
+    });
+    svg += '</svg>';
+    return svg;
+  }
+
+  function renderMainChart() {
+    const rows = buildWeeklySeries();
+    const el = $('#mainChart');
+    if (rows.length < 2) {
+      el.innerHTML = '<p class="hint">Zatím málo dat na graf — potřebuju aspoň dva týdny se zapsanou váhou nebo hlavním cvikem.</p>';
+      $('#mainLegend').innerHTML = '';
+      $('#relToggle').style.display = 'none';
+      $('#mainStats').innerHTML = '';
+      return;
+    }
+    $('#relToggle').style.display = '';
+    const lines = [
+      { field: 'bw', cls: 'lbw', color: '--amber' },
+      { field: 'idx', cls: 'lidx', color: '--blue' }
+    ];
+    if (showRel) lines.push({ field: 'rel', cls: 'lrel', color: '--green' });
+    el.innerHTML = lineChartSvg(rows, lines, {});
+    $('#mainLegend').innerHTML =
+      '<span><i style="background:var(--amber)"></i>tělesná váha</span>' +
+      '<span><i style="background:var(--blue)"></i>index síly</span>' +
+      (showRel ? '<span><i style="background:var(--green)"></i>relativní síla</span>' : '');
+
+    // gain-rate over the last ~3 weeks, based on weekly bodyweight average
+    const bwRows = rows.filter(r => r.bw != null);
+    let statsHtml = '';
+    if (bwRows.length < 3) {
+      statsHtml = '<p class="hint">Tempo nabírání spočítám, až budou aspoň 3 týdny se zapsanou váhou.</p>';
+    } else {
+      const span = Math.min(3, bwRows.length - 1);
+      const last = bwRows[bwRows.length - 1], ref = bwRows[bwRows.length - 1 - span];
+      const ratePerWeek = ((last.bw - ref.bw) / ref.bw / span) * 100;
+      let cls = 'v', label = 'v pásmu';
+      if (ratePerWeek < 0.25) { cls = 'pod'; label = 'pod pásmem'; }
+      else if (ratePerWeek > 0.5) { cls = 'nad'; label = 'nad pásmem'; }
+      statsHtml =
+        '<div class="stat"><div class="sv">' + (ratePerWeek >= 0 ? '+' : '') + ratePerWeek.toFixed(2) + ' %</div><div class="sl">tempo / týden</div></div>' +
+        '<div class="stat ' + cls + '"><div class="sv">' + label + '</div><div class="sl">cíl 0,25–0,5 % / týden</div></div>';
+    }
+    $('#mainStats').innerHTML = statsHtml;
+  }
+
+  function allExercises() {
+    const map = {};
+    Object.values(data.cycles).forEach(cyc => {
+      Object.keys(cyc.plan.days).forEach(dk => cyc.plan.days[dk].ex.forEach(ex => {
+        if (ex.kind === 'prep' || ex.kind === 'armor') return;
+        map[ex.id] = ex.name;
+      }));
+    });
+    return map;
+  }
+
+  function exerciseSeries(exId) {
+    const sessions = allSessions();
+    const byWeek = {};
+    sessions.forEach(s => {
+      s.dayDef.ex.forEach(ex => {
+        if (ex.id !== exId) return;
+        const best = bestSet(s.entry.sets && s.entry.sets[exId]);
+        if (best != null) byWeek[mondayOf(s.date)] = best;
+      });
+    });
+    const weeks = Object.keys(byWeek).sort();
+    if (!weeks.length) return [];
+    const rows = [];
+    for (let d = new Date(weeks[0] + 'T00:00:00Z'), end = new Date(weeks[weeks.length - 1] + 'T00:00:00Z');
+         d <= end; d.setUTCDate(d.getUTCDate() + 7)) {
+      const wk = d.toISOString().slice(0, 10);
+      rows.push({ week: wk, val: byWeek[wk] != null ? byWeek[wk] : null });
+    }
+    return rows;
+  }
+
+  function renderExChart() {
+    const exId = $('#exSel').value;
+    const rows = exerciseSeries(exId);
+    const el = $('#exChart');
+    if (rows.length < 2) {
+      el.innerHTML = '<p class="hint">Zatím málo dat na graf tohohle cviku — potřebuju aspoň dva zapsané týdny.</p>';
+      return;
+    }
+    el.innerHTML = lineChartSvg(rows, [{ field: 'val', cls: 'lidx', color: '--blue' }], {});
+  }
+
+  function populateExSel() {
+    const ex = allExercises();
+    const sel = $('#exSel');
+    const prev = sel.value;
+    sel.innerHTML = Object.keys(ex).map(id => '<option value="' + id + '">' + ex[id] + '</option>').join('');
+    if (ex[prev]) sel.value = prev;
+  }
+
+  function renderProgres() {
+    renderMainChart();
+    $('#exSect').style.display = '';
+    populateExSel();
+    renderExChart();
+  }
+
+  // ---- render --------------------------------------------------------
+  function render() {
+    const w = WEEKS[week];
+    $('#wkNum').textContent = 'Týden ' + week;
+    $('#wkBlk').innerHTML = '<b>' + w.blk + '</b> · hlavní cvik ' + w.ms + ' × ' + w.mr + ' · RPE ' + w.rpe;
+    $('#wkPrev').disabled = week === 1;
+    $('#wkNext').disabled = week === 12;
+
+    $('#days').innerHTML = Object.keys(DAYS).map(k => {
+      const d = DAYS[k];
+      const e = entries()['w' + week + '-' + k];
+      const done = e && e.sets && Object.keys(e.sets).some(id => (e.sets[id] || []).some(s => s && s.kg));
+      return '<button class="day' + (k === day ? ' on' : '') + (done ? ' done' : '') + '" data-d="' + k + '">' +
+             '<span class="dl">' + d.short + '</span><span class="ds">' + d.title + '</span></button>';
+    }).join('');
+
+    const en = entry();
+    document.querySelectorAll('.z').forEach(b => b.classList.toggle('on', b.dataset.z === en.zone));
+    const v = VERDICTS[en.zone];
+    $('#verdict').innerHTML = '<b>' + v[0] + '</b> — ' + v[1];
+
+    $('#list').innerHTML = DAYS[day].ex.map(ex => {
+      const n = setCount(ex, w, en.zone);
+      const skip = ex.kind !== 'prep' && ex.kind !== 'armor' && n === 0;
+      let body = '';
+
+      if (ex.kind === 'armor') {
+        const a = en.armor || {};
+        body = '<div class="armor">' +
+          '<button class="chk' + (a.neck ? ' on' : '') + '" data-arm="neck">Krk</button>' +
+          '<button class="chk' + (a.grip ? ' on' : '') + '" data-arm="grip">Grip</button></div>';
+      } else if (ex.kind === 'prep') {
+        const a = en.armor || {};
+        body = '<div class="armor"><button class="chk' + (a[ex.id] ? ' on' : '') + '" data-arm="' + ex.id + '">Hotovo</button></div>';
+      } else if (n > 0) {
+        const rows = (en.sets[ex.id] || []);
+        const sugg = suggestKg(ex);
+        let s = '<div class="sets">';
+        for (let i = 0; i < n; i++) {
+          const r = rows[i] || {};
+          const filled = r.kg ? ' filled' : '';
+          const kgPh = r.kg == null && sugg != null ? sugg : '—';
+          s += '<div class="setrow' + filled + '">' +
+               '<span class="sn">' + (i + 1) + '</span>' +
+               '<label class="fld"><input type="number" step="0.5" inputmode="decimal" placeholder="' + kgPh + '" ' +
+               'value="' + (r.kg != null ? r.kg : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-f="kg"><span>kg</span></label>' +
+               '<label class="fld"><input type="number" inputmode="numeric" placeholder="—" ' +
+               'value="' + (r.r != null ? r.r : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-f="r"><span>op.</span></label>' +
+               '</div>';
+        }
+        body = s + '</div>';
+      }
+
+      const p = previous(ex.id);
+      const prevLine = p ? '<div class="prev">Týden ' + p.wk + ': <b>' +
+        p.rows.map(r => (r.kg || '?') + '×' + (r.r || '?')).join('  ·  ') + '</b></div>' : '';
+
+      return '<div class="ex ' + ex.kind + (skip ? ' skip' : '') + '">' +
+        '<div class="exhead"><span class="code">' + ex.code + '</span>' +
+        '<span class="exname">' + ex.name + '</span>' +
+        '<span class="presc">' + prescription(ex, w, en.zone) + '</span></div>' +
+        (ex.note ? '<div class="exnote">' + ex.note + '</div>' : '') +
+        prevLine + body + '</div>';
+    }).join('');
+
+    $('#note').value = en.note || '';
+    renderBw();
+  }
+
+  function renderBw() {
+    const ks = Object.keys(data.bw).sort().reverse().slice(0, 6);
+    if (!ks.length) { $('#bwList').innerHTML = '<p class="hint">Váž se ráno nalačno. Sleduj týdenní průměr, ne jednotlivé dny.</p>'; return; }
+    $('#bwList').innerHTML = ks.map((d, i) => {
+      const prev = ks[i + 1];
+      let delta = '';
+      if (prev) {
+        const diff = data.bw[d] - data.bw[prev];
+        delta = '<span class="' + (diff > 0 ? 'up' : diff < 0 ? 'dn' : '') + '">' +
+                (diff > 0 ? '+' : '') + diff.toFixed(1) + '</span>';
+      }
+      return '<div><span>' + d.slice(8) + '. ' + d.slice(5, 7) + '.</span><span>' +
+             data.bw[d].toFixed(1) + ' kg &nbsp; ' + delta + '</span></div>';
+    }).join('');
+  }
+
+  // ---- events ---------------------------------------------------------
+  document.querySelectorAll('.tab').forEach(b => {
+    b.onclick = () => {
+      document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === b));
+      const t = b.dataset.tab;
+      $('#viewDenik').hidden = t !== 'denik';
+      $('#viewProgres').hidden = t !== 'progres';
+      if (t === 'progres') renderProgres();
+    };
+  });
+
+  $('#exSel').onchange = renderExChart;
+
+  $('#relToggle').onclick = () => {
+    showRel = !showRel;
+    $('#relToggle').classList.toggle('on', showRel);
+    $('#relToggle').textContent = (showRel ? '− ' : '+ ') + 'relativní síla (1RM / váha)';
+    renderMainChart();
+  };
+
+  $('#wkPrev').onclick = () => { if (week > 1) { week--; render(); } };
+  $('#wkNext').onclick = () => { if (week < 12) { week++; render(); } };
+
+  $('#days').addEventListener('click', e => {
+    const b = e.target.closest('.day'); if (!b) return;
+    day = b.dataset.d; render();
+  });
+
+  document.querySelectorAll('.z').forEach(b => {
+    b.onclick = () => { entry().zone = b.dataset.z; save(); render(); };
+  });
+
+  $('#list').addEventListener('input', e => {
+    const i = e.target; if (!i.dataset.ex) return;
+    const en = entry();
+    if (!en.sets[i.dataset.ex]) en.sets[i.dataset.ex] = [];
+    const arr = en.sets[i.dataset.ex];
+    const idx = +i.dataset.i;
+    while (arr.length <= idx) arr.push({});
+    const val = i.value === '' ? null : parseFloat(i.value);
+    arr[idx][i.dataset.f] = val;
+    en.date = en.date || today();
+    i.closest('.setrow').classList.toggle('filled', !!arr[idx].kg);
+    save();
+  });
+
+  $('#list').addEventListener('click', e => {
+    const b = e.target.closest('.chk'); if (!b) return;
+    const en = entry();
+    if (!en.armor) en.armor = {};
+    en.armor[b.dataset.arm] = !en.armor[b.dataset.arm];
+    en.date = en.date || today();
+    b.classList.toggle('on');
+    save();
+  });
+
+  $('#note').addEventListener('input', e => { entry().note = e.target.value; save(); });
+
+  $('#bwDate').value = today();
+  $('#bwDate').max = today();
+
+  $('#bwAdd').onclick = () => {
+    const v = parseFloat($('#bwIn').value);
+    if (isNaN(v)) return;
+    const dt = $('#bwDate').value || today();
+    data.bw[dt] = v;
+    $('#bwIn').value = '';
+    $('#bwDate').value = today();
+    save(); renderBw();
+  };
+
+  $('#exp').onclick = () => {
+    let csv = 'cyklus;tyden;den;datum;zona;cvik;serie;kg;opakovani\n';
+    Object.keys(data.cycles).forEach(cid => {
+      const cyc = data.cycles[cid];
+      Object.keys(cyc.entries).sort().forEach(k => {
+        const wk = k.slice(1).split('-')[0], dy = k.split('-')[1];
+        const en = cyc.entries[k];
+        const dd = cyc.plan.days[dy]; if (!dd) return;
+        dd.ex.forEach(ex => {
+          (en.sets[ex.id] || []).forEach((s, i) => {
+            if (!s || (!s.kg && !s.r)) return;
+            csv += [cyc.name, wk, dd.short, en.date || '', en.zone || '', ex.name, i + 1, s.kg != null ? s.kg : '', s.r != null ? s.r : ''].join(';') + '\n';
+          });
+        });
+        if (en.note) csv += [cyc.name, wk, dd.short, en.date || '', '', 'POZNÁMKA', '', '', en.note.replace(/[\n;]/g, ' ')].join(';') + '\n';
+      });
+    });
+    Object.keys(data.bw).sort().forEach(d => { csv += ['', '', '', d, '', 'VÁHA', '', data.bw[d], ''].join(';') + '\n'; });
+
+    const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'trenink-' + today() + '.csv';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+
+    $('#exp').textContent = 'Staženo';
+    setTimeout(() => { $('#exp').textContent = 'Stáhnout CSV'; }, 1800);
+  };
+
+  $('#bkp').onclick = async () => {
+    const t = JSON.stringify(data);
+    $('#json').value = t; $('#json').select();
+    try { await navigator.clipboard.writeText(t); $('#bkp').textContent = 'Zkopírováno'; }
+    catch (e) { $('#bkp').textContent = 'Vyber text dole a zkopíruj'; }
+    setTimeout(() => { $('#bkp').textContent = 'Záloha všeho (JSON)'; }, 2600);
+  };
+
+  $('#rst').onclick = () => {
+    const t = $('#json').value.trim();
+    if (!t) { $('#rst').textContent = 'Textarea je prázdná'; setTimeout(() => { $('#rst').textContent = 'Obnovit ze zálohy'; }, 2200); return; }
+    let parsed;
+    try { parsed = JSON.parse(t); } catch (e) {
+      $('#rst').textContent = 'Tohle není platná záloha';
+      setTimeout(() => { $('#rst').textContent = 'Obnovit ze zálohy'; }, 2600); return;
+    }
+    if (!parsed || typeof parsed !== 'object' || (!parsed.entries && !parsed.cycles)) {
+      $('#rst').textContent = 'Záloha nemá správný tvar';
+      setTimeout(() => { $('#rst').textContent = 'Obnovit ze zálohy'; }, 2600); return;
+    }
+    if (!confirm('Tohle přepíše všechna data v deníku. Pokračovat?')) return;
+    data = parsed;
+    if (!data.bw) data.bw = {};
+    ensureCycles();
+    applyActiveCycle();
+    day = Object.keys(DAYS)[0];
+    const w = Object.keys(entries()).map(k => +k.slice(1).split('-')[0]);
+    week = w.length ? Math.min(12, Math.max.apply(null, w)) : 1;
+    populateCycleSel();
+    save(); render();
+    $('#rst').textContent = 'Obnoveno';
+    setTimeout(() => { $('#rst').textContent = 'Obnovit ze zálohy'; }, 2200);
+  };
+
+  // ---- cykly a plán ---------------------------------------------------
+  function populateCycleSel() {
+    const sel = $('#cycleSel');
+    sel.innerHTML = Object.keys(data.cycles).map(id =>
+      '<option value="' + id + '"' + (id === data.activeCycle ? ' selected' : '') + '>' + data.cycles[id].name + '</option>'
+    ).join('');
+  }
+
+  function switchToCycle(id) {
+    data.activeCycle = id;
+    applyActiveCycle();
+    week = 1; day = Object.keys(DAYS)[0];
+    populateCycleSel();
+    save(); render();
+  }
+
+  $('#cycleSel').onchange = () => switchToCycle($('#cycleSel').value);
+
+  $('#newCycle').onclick = () => {
+    const name = $('#newCycleName').value.trim() || ('Blok ' + (Object.keys(data.cycles).length + 1));
+    const id = 'c' + Date.now();
+    data.cycles[id] = { name, createdAt: today(), plan: clonePlan(data.cycles[data.activeCycle].plan), entries: {} };
+    $('#newCycleName').value = '';
+    switchToCycle(id);
+  };
+
+  $('#planExp').onclick = async () => {
+    const t = JSON.stringify(data.cycles[data.activeCycle].plan, null, 2);
+    $('#planImp').value = t;
+    try { await navigator.clipboard.writeText(t); $('#planExp').textContent = 'Zkopírováno'; }
+    catch (e) { $('#planExp').textContent = 'Vyber text dole a zkopíruj'; }
+    setTimeout(() => { $('#planExp').textContent = 'Export plánu (JSON)'; }, 2600);
+  };
+
+  function validatePlan(p) {
+    if (!p || typeof p !== 'object') return false;
+    if (!p.days || typeof p.days !== 'object' || !Object.keys(p.days).length) return false;
+    if (!p.weeks || typeof p.weeks !== 'object' || !Object.keys(p.weeks).length) return false;
+    for (const dk in p.days) {
+      const d = p.days[dk];
+      if (!d || !d.day || !d.short || !Array.isArray(d.ex) || !d.ex.length) return false;
+      for (const ex of d.ex) {
+        if (!ex.id || !ex.code || !ex.name || !ex.kind) return false;
+      }
+    }
+    for (const wk in p.weeks) {
+      const w = p.weeks[wk];
+      if (!w || w.ms == null || w.mr == null || w.rpe == null) return false;
+    }
+    return true;
+  }
+
+  $('#planImpBtn').onclick = () => {
+    const msg = $('#planMsg');
+    msg.textContent = '';
+    const t = $('#planImp').value.trim();
+    if (!t) { msg.textContent = 'Textarea je prázdná.'; return; }
+    let parsed;
+    try { parsed = JSON.parse(t); } catch (e) { msg.textContent = 'Tohle není platný JSON.'; return; }
+    if (!validatePlan(parsed)) { msg.textContent = 'Plán nemá očekávaný tvar (days/weeks) — nic jsem nezměnil.'; return; }
+    if (!confirm('Přepsat plán cyklu „' + data.cycles[data.activeCycle].name + '“? Zapsané tréninky zůstanou beze změny.')) return;
+    data.cycles[data.activeCycle].plan = parsed;
+    applyActiveCycle();
+    week = 1; day = Object.keys(DAYS)[0];
+    msg.textContent = 'Plán naimportován.';
+    save(); render();
+  };
+
+  load();
+})();
+</script>
+
+</body>
+</html>
