@@ -49,8 +49,7 @@
 
   /* ---------- header ---------- */
   .hdr {
-    position: sticky; top: 0; z-index: 20;
-    padding-top: env(safe-area-inset-top);
+    position: sticky; top: 3rem; z-index: 20;
     background: var(--bg);
     border-bottom: 1px solid var(--line);
   }
@@ -209,7 +208,12 @@
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
   /* ---------- tabs ---------- */
-  .tabs { display: flex; border-bottom: 1px solid var(--line); }
+  .tabs {
+    position: sticky; top: 0; z-index: 21;
+    padding-top: env(safe-area-inset-top);
+    background: var(--bg);
+    display: flex; border-bottom: 1px solid var(--line);
+  }
   .tab {
     flex: 1; background: none; border: none; color: var(--ink3);
     font-family: inherit; font-size: .88rem; font-weight: 600;
