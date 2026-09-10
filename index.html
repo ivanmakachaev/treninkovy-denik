@@ -2,7 +2,7 @@
 <html lang="cs">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,7 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 
   #app {
     --bg:      #12161c;
@@ -60,7 +60,7 @@
   .wkbtn {
     width: 52px; flex: none;
     background: none; border: none; color: var(--ink2);
-    font-size: 24px; font-weight: 500; cursor: pointer;
+    font-size: 26px; font-weight: 700; cursor: pointer;
     font-family: inherit;
   }
   .wkbtn:active { background: var(--surf2); color: var(--ink); }
@@ -204,6 +204,46 @@
   }
   .saved.show { opacity: 1; }
 
+  /* ---------- week list modal ---------- */
+  .wknum { cursor: pointer; }
+  .modal-bg {
+    position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 50;
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .modal-bg[hidden] { display: none; }
+  .modal {
+    background: var(--surf); width: 100%; max-width: 620px;
+    max-height: 78vh; overflow-y: auto; border-radius: 14px 14px 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .modal-hd {
+    position: sticky; top: 0; z-index: 1;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .8rem 1rem; border-bottom: 1px solid var(--line);
+    background: var(--surf);
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 700;
+  }
+  .modal-x {
+    background: none; border: none; color: var(--ink2); font-size: 1.1rem;
+    padding: .2rem .5rem; cursor: pointer;
+  }
+  .wkrow {
+    display: flex; align-items: center; gap: .7rem;
+    padding: .65rem 1rem; border-bottom: 1px solid var(--line); cursor: pointer;
+  }
+  .wkrow.cur { background: var(--surf2); }
+  .wkrow .wn {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem;
+    color: var(--ink2); width: 1.8rem; flex: none;
+  }
+  .wkrow.cur .wn { color: var(--blue); }
+  .wkrow .wmeta { flex: 1; min-width: 0; }
+  .wkrow .wblk { font-size: .72rem; color: var(--ink2); }
+  .wkrow .wpresc { font-size: .82rem; font-weight: 600; }
+  .wkrow .wdays { display: flex; gap: 5px; flex: none; }
+  .wkrow .wd { width: 8px; height: 8px; border-radius: 50%; background: var(--line2); }
+  .wkrow .wd.done { background: var(--green); }
+
   .hint { font-size: .78rem; color: var(--ink3); line-height: 1.45; }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
@@ -265,12 +305,12 @@
   <div id="viewDenik">
     <div class="hdr">
       <div class="wkbar">
-        <button class="wkbtn" id="wkPrev" aria-label="Předchozí týden">−</button>
+        <button class="wkbtn" id="wkPrev" aria-label="Předchozí týden">‹</button>
         <div class="wkinfo">
           <span class="wknum" id="wkNum">Týden 1</span>
           <span class="blk" id="wkBlk"></span>
         </div>
-        <button class="wkbtn" id="wkNext" aria-label="Další týden">+</button>
+        <button class="wkbtn" id="wkNext" aria-label="Další týden">›</button>
       </div>
       <div class="days" id="days"></div>
     </div>
@@ -351,6 +391,16 @@
   </div>
 
   <div class="saved" id="saved">Uloženo</div>
+
+  <div class="modal-bg" id="wkModalBg" hidden>
+    <div class="modal">
+      <div class="modal-hd">
+        <span>Týdny</span>
+        <button class="modal-x" id="wkModalClose" aria-label="Zavřít">✕</button>
+      </div>
+      <div id="wkModalList"></div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -469,6 +519,8 @@
     return es[key()];
   }
 
+  const maxWeek = () => Math.max.apply(null, Object.keys(WEEKS).map(Number));
+
   // ---- persistence -------------------------------------------------
   function load() {
     try {
@@ -480,7 +532,7 @@
     applyActiveCycle();
     day = Object.keys(DAYS)[0];
     const w = Object.keys(entries()).map(k => +k.slice(1).split('-')[0]);
-    if (w.length) week = Math.min(12, Math.max.apply(null, w));
+    if (w.length) week = Math.min(maxWeek(), Math.max.apply(null, w));
     populateCycleSel();
     render();
   }
@@ -808,13 +860,34 @@
     renderExChart();
   }
 
+  // ---- week list modal -------------------------------------------------
+  function renderWeekModal() {
+    const wks = Object.keys(WEEKS).map(Number).sort((a, b) => a - b);
+    $('#wkModalList').innerHTML = wks.map(wk => {
+      const w = WEEKS[wk];
+      const days = Object.keys(DAYS).map(dk => {
+        const e = entries()['w' + wk + '-' + dk];
+        return e && e.sets && Object.keys(e.sets).some(id => (e.sets[id] || []).some(s => s && s.kg));
+      });
+      return '<div class="wkrow' + (wk === week ? ' cur' : '') + '" data-wk="' + wk + '">' +
+        '<span class="wn">' + wk + '</span>' +
+        '<div class="wmeta"><div class="wblk">' + w.blk + '</div>' +
+        '<div class="wpresc">hlavní cvik ' + w.ms + ' × ' + w.mr + ' · RPE ' + w.rpe + '</div></div>' +
+        '<div class="wdays">' + days.map(d => '<span class="wd' + (d ? ' done' : '') + '"></span>').join('') + '</div>' +
+        '</div>';
+    }).join('');
+  }
+
+  function openWeekModal() { renderWeekModal(); $('#wkModalBg').hidden = false; }
+  function closeWeekModal() { $('#wkModalBg').hidden = true; }
+
   // ---- render --------------------------------------------------------
   function render() {
     const w = WEEKS[week];
     $('#wkNum').textContent = 'Týden ' + week;
     $('#wkBlk').innerHTML = '<b>' + w.blk + '</b> · hlavní cvik ' + w.ms + ' × ' + w.mr + ' · RPE ' + w.rpe;
     $('#wkPrev').disabled = week === 1;
-    $('#wkNext').disabled = week === 12;
+    $('#wkNext').disabled = week === maxWeek();
 
     $('#days').innerHTML = Object.keys(DAYS).map(k => {
       const d = DAYS[k];
@@ -914,7 +987,17 @@
   };
 
   $('#wkPrev').onclick = () => { if (week > 1) { week--; render(); } };
-  $('#wkNext').onclick = () => { if (week < 12) { week++; render(); } };
+  $('#wkNext').onclick = () => { if (week < maxWeek()) { week++; render(); } };
+
+  $('#wkNum').onclick = openWeekModal;
+  $('#wkModalClose').onclick = closeWeekModal;
+  $('#wkModalBg').onclick = (e) => { if (e.target.id === 'wkModalBg') closeWeekModal(); };
+  $('#wkModalList').addEventListener('click', e => {
+    const row = e.target.closest('.wkrow'); if (!row) return;
+    week = +row.dataset.wk;
+    closeWeekModal();
+    render();
+  });
 
   $('#days').addEventListener('click', e => {
     const b = e.target.closest('.day'); if (!b) return;
@@ -1021,7 +1104,7 @@
     applyActiveCycle();
     day = Object.keys(DAYS)[0];
     const w = Object.keys(entries()).map(k => +k.slice(1).split('-')[0]);
-    week = w.length ? Math.min(12, Math.max.apply(null, w)) : 1;
+    week = w.length ? Math.min(maxWeek(), Math.max.apply(null, w)) : 1;
     populateCycleSel();
     save(); render();
     $('#rst').textContent = 'Obnoveno';
