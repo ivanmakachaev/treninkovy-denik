@@ -487,6 +487,9 @@
   const today = () => new Date().toISOString().slice(0, 10);
   const clonePlan = (p) => JSON.parse(JSON.stringify(p));
 
+  // display-only: Czech decimal comma (stored values stay plain numbers)
+  const fmt = (v) => String(v).replace('.', ',');
+
   // accepts "77,5" and "77.5" alike; null for empty or unparseable input
   function parseNum(s) {
     const v = parseFloat(String(s).replace(',', '.'));
@@ -802,7 +805,7 @@
       if (ratePerWeek < 0.25) { cls = 'pod'; label = 'pod pásmem'; }
       else if (ratePerWeek > 0.5) { cls = 'nad'; label = 'nad pásmem'; }
       statsHtml =
-        '<div class="stat"><div class="sv">' + (ratePerWeek >= 0 ? '+' : '') + ratePerWeek.toFixed(2) + ' %</div><div class="sl">tempo / týden</div></div>' +
+        '<div class="stat"><div class="sv">' + (ratePerWeek >= 0 ? '+' : '') + fmt(ratePerWeek.toFixed(2)) + ' %</div><div class="sl">tempo / týden</div></div>' +
         '<div class="stat ' + cls + '"><div class="sv">' + label + '</div><div class="sl">cíl 0,25–0,5 % / týden</div></div>';
     }
     $('#mainStats').innerHTML = statsHtml;
@@ -928,11 +931,11 @@
         for (let i = 0; i < n; i++) {
           const r = rows[i] || {};
           const filled = r.kg ? ' filled' : '';
-          const kgPh = r.kg == null && sugg != null ? sugg : '—';
+          const kgPh = r.kg == null && sugg != null ? fmt(sugg) : '—';
           s += '<div class="setrow' + filled + '">' +
                '<span class="sn">' + (i + 1) + '</span>' +
                '<label class="fld"><input type="text" inputmode="decimal" autocomplete="off" placeholder="' + kgPh + '" ' +
-               'value="' + (r.kg != null ? r.kg : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-f="kg"><span>kg</span></label>' +
+               'value="' + (r.kg != null ? fmt(r.kg) : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-f="kg"><span>kg</span></label>' +
                '<label class="fld"><input type="number" inputmode="numeric" placeholder="—" ' +
                'value="' + (r.r != null ? r.r : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-f="r"><span>op.</span></label>' +
                '</div>';
@@ -942,7 +945,7 @@
 
       const p = previous(ex.id);
       const prevLine = p ? '<div class="prev">Týden ' + p.wk + ': <b>' +
-        p.rows.map(r => (r.kg || '?') + '×' + (r.r || '?')).join('  ·  ') + '</b></div>' : '';
+        p.rows.map(r => (r.kg ? fmt(r.kg) : '?') + '×' + (r.r || '?')).join('  ·  ') + '</b></div>' : '';
 
       return '<div class="ex ' + ex.kind + (skip ? ' skip' : '') + '">' +
         '<div class="exhead"><span class="code">' + ex.code + '</span>' +
@@ -965,10 +968,10 @@
       if (prev) {
         const diff = data.bw[d] - data.bw[prev];
         delta = '<span class="' + (diff > 0 ? 'up' : diff < 0 ? 'dn' : '') + '">' +
-                (diff > 0 ? '+' : '') + diff.toFixed(1) + '</span>';
+                (diff > 0 ? '+' : '') + fmt(diff.toFixed(1)) + '</span>';
       }
       return '<div><span>' + d.slice(8) + '. ' + d.slice(5, 7) + '.</span><span>' +
-             data.bw[d].toFixed(1) + ' kg &nbsp; ' + delta + '</span></div>';
+             fmt(data.bw[d].toFixed(1)) + ' kg &nbsp; ' + delta + '</span></div>';
     }).join('');
   }
 
@@ -1028,7 +1031,7 @@
       const kgIn = i.closest('.setrow').querySelector('input[data-f="kg"]');
       const sugg = parseNum(kgIn.placeholder);
       if (kgIn.value === '' && sugg != null) {
-        kgIn.value = sugg;
+        kgIn.value = fmt(sugg);
         arr[idx].kg = sugg;
       }
     }
