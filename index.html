@@ -1022,6 +1022,16 @@
     const idx = +i.dataset.i;
     while (arr.length <= idx) arr.push({});
     arr[idx][i.dataset.f] = parseNum(i.value);
+
+    // the grey suggested weight becomes a real value once reps are filled in
+    if (i.dataset.f === 'r' && arr[idx].r != null) {
+      const kgIn = i.closest('.setrow').querySelector('input[data-f="kg"]');
+      const sugg = parseNum(kgIn.placeholder);
+      if (kgIn.value === '' && sugg != null) {
+        kgIn.value = sugg;
+        arr[idx].kg = sugg;
+      }
+    }
     en.date = en.date || today();
     i.closest('.setrow').classList.toggle('filled', !!arr[idx].kg);
     save();
