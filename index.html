@@ -341,7 +341,7 @@
           <input class="binp" id="bwDate" type="date">
         </div>
         <div class="bwrow">
-          <input class="binp" id="bwIn" type="number" step="0.1" inputmode="decimal" placeholder="kg">
+          <input class="binp" id="bwIn" type="text" inputmode="decimal" autocomplete="off" placeholder="kg">
           <button class="btn" id="bwAdd">Zapsat</button>
         </div>
         <div class="bwlist" id="bwList"></div>
@@ -486,6 +486,12 @@
   const key = () => 'w' + week + '-' + day;
   const today = () => new Date().toISOString().slice(0, 10);
   const clonePlan = (p) => JSON.parse(JSON.stringify(p));
+
+  // accepts "77,5" and "77.5" alike; null for empty or unparseable input
+  function parseNum(s) {
+    const v = parseFloat(String(s).replace(',', '.'));
+    return isNaN(v) ? null : v;
+  }
 
   // active cycle's log entries — {'w1-A': {sets, zone, note, armor, date}, ...}
   function entries() {
@@ -925,7 +931,7 @@
           const kgPh = r.kg == null && sugg != null ? sugg : '—';
           s += '<div class="setrow' + filled + '">' +
                '<span class="sn">' + (i + 1) + '</span>' +
-               '<label class="fld"><input type="number" step="0.5" inputmode="decimal" placeholder="' + kgPh + '" ' +
+               '<label class="fld"><input type="text" inputmode="decimal" autocomplete="off" placeholder="' + kgPh + '" ' +
                'value="' + (r.kg != null ? r.kg : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-f="kg"><span>kg</span></label>' +
                '<label class="fld"><input type="number" inputmode="numeric" placeholder="—" ' +
                'value="' + (r.r != null ? r.r : '') + '" data-ex="' + ex.id + '" data-i="' + i + '" data-f="r"><span>op.</span></label>' +
@@ -1015,8 +1021,7 @@
     const arr = en.sets[i.dataset.ex];
     const idx = +i.dataset.i;
     while (arr.length <= idx) arr.push({});
-    const val = i.value === '' ? null : parseFloat(i.value);
-    arr[idx][i.dataset.f] = val;
+    arr[idx][i.dataset.f] = parseNum(i.value);
     en.date = en.date || today();
     i.closest('.setrow').classList.toggle('filled', !!arr[idx].kg);
     save();
@@ -1038,8 +1043,8 @@
   $('#bwDate').max = today();
 
   $('#bwAdd').onclick = () => {
-    const v = parseFloat($('#bwIn').value);
-    if (isNaN(v)) return;
+    const v = parseNum($('#bwIn').value);
+    if (v == null) return;
     const dt = $('#bwDate').value || today();
     data.bw[dt] = v;
     $('#bwIn').value = '';
